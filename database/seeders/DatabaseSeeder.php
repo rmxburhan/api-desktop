@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Obat;
+use App\Models\Profil;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,7 +17,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         User::factory()->create([
             'username' => 'user' 
         ]);
@@ -41,9 +41,10 @@ class DatabaseSeeder extends Seeder
             'jumlah' => '90',
             'harga' => '1000',
         ]);
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Profil::create([
+            'latitude' => '-6.9425894',
+            'longitude' => '106.9476664'
+        ]);
+      
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ObatController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\ResepController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\UserController;
@@ -25,6 +26,7 @@ Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logo
 Route::middleware('auth:sanctum')->apiResource('/obat', ObatController::class);
 Route::middleware('auth:sanctum')->post('/transaksi',[TransaksiController::class, 'store']);
 Route::middleware('auth:sanctum')->post('/resep', [ResepController::class, 'store']);
+Route::get('/profil', [ProfilController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
