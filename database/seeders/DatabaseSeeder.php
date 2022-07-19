@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Jenis;
 use App\Models\Obat;
 use App\Models\Profil;
 use App\Models\User;
@@ -42,8 +43,14 @@ class DatabaseSeeder extends Seeder
             'harga' => '1000',
         ]);
         Profil::create([
-            'latitude' => '-6.9425894',
-            'longitude' => '106.9476664'
+            'latitude' => '-6.934887339827204',
+            'longitude' => '106.92606306774415'
+        ]);
+        Jenis::create([
+            'jenis_obat' => 'Tablet',
+        ]);
+        Jenis::create([
+            'jenis_obat' => 'Kapsul',
         ]);
       
     }
