@@ -26,7 +26,8 @@ Route::middleware('auth:sanctum')->post('/logout', [UserController::class, 'logo
 
 Route::middleware('auth:sanctum')->apiResource('/obat', ObatController::class);
 Route::middleware('auth:sanctum')->post('/transaksi',[TransaksiController::class, 'store']);
-Route::middleware('auth:sanctum')->post('/resep', [ResepController::class, 'store']);
+Route::middleware('auth:sanctum')->apiResource('/resep', ResepController::class);
+Route::middleware('auth:sanctum')->apiResource('/mnguser', UserController::class);
 Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/jenis', [JenisController::class, 'index']);
 

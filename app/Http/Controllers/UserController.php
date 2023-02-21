@@ -17,7 +17,7 @@ class UserController extends Controller
     {
         $data = $request->validate([
             'username' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ]);
 
         if (auth()->attempt($data)) {
@@ -73,5 +73,76 @@ class UserController extends Controller
         return response([
             'message' => 'success',
         ]);
+    }
+
+    public function index()
+    {
+        $data = User::all();
+
+        return response([
+            'data' => $data
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'nama' => 'required',
+            'tipe_user' => 'required',
+            'username' => 'required',
+            'alamat' => 'required',
+            'password' => 'required',
+            'telepon' => 'required',
+        ]);
+
+        try {
+            User::create($data);
+        } catch (Exception $ex) {
+            return response([
+                'message' => $ex
+            ], 400);
+        }
+
+        return response([
+            'message' => 'success'
+        ], 200);
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $data = $request->validate([
+            'nama' => 'required',
+            'username' => 'required',
+            'tipe_user' => 'required',
+            'password' => 'required',
+            'telepon' => 'required',
+            'alamat' => 'required'
+        ]); 
+
+        try {
+            $user->update($data);
+        } catch (Exceptipn $ex) {
+            return response([
+                'message' => 'error'
+            ], 400);
+        }
+
+        return response([
+            'message' => 'success'
+        ], 200);
+    }
+
+    public function destroy(User $user) {
+        try {
+            $user->delete();
+        } catch (Exception $ex) {
+            return response([
+                'message' => 'error'
+            ], 400);
+        }
+
+        return response([
+            'message' => 'success'
+        ], 200);
     }
 }

@@ -32,6 +32,7 @@ class ObatController extends Controller
             'data' => $data,
         ]);
     }
+    
     public function update(Request $request, Obat $obat) {
         $data = $request->validate([
             'kode_obat' => 'required',

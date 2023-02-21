@@ -19,8 +19,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         User::factory()->create([
-            'username' => 'user' 
+            'username' => 'admin',
+            'role' => 'admin'
         ]);
+        User::factory()->create([
+            'username' => 'kasir',
+            'role' => 'kasir'
+        ]);
+        User::factory()->create([
+            'username' => 'apoteker',
+            'role' => 'apoteker'
+        ]);
+        
         Obat::create([
             'kode_obat' => 'OBT1',
             'nama_obat' => 'Obat1',
