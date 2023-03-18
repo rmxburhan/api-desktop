@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('profils', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_aplikasi')->default('Apotek sejahtera');
             $table->string('latitude')->nullable();
             $table->string('longitude')->nullable();
             $table->timestamps();

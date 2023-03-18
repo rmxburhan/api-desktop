@@ -17,9 +17,7 @@ class ObatController extends Controller
             'jumlah' => 'required',
             'harga' => 'required',
         ]);
-
         Obat::create($data);
-
         return response([
             'message' => 'success',
         ]);
@@ -27,7 +25,6 @@ class ObatController extends Controller
 
     public function index(){
         $data = Obat::all();
-
         return response([
             'data' => $data,
         ]);
@@ -41,9 +38,7 @@ class ObatController extends Controller
             'jumlah' => 'required',
             'harga' => 'required',
         ]);
-
         $obat->update($data);
-
         return response([
             'message' => 'success',
         ]);
@@ -51,7 +46,6 @@ class ObatController extends Controller
 
     public function destroy(Obat $obat){
         $obat->delete();
-
         return response([
             'message' => 'success',
         ]);

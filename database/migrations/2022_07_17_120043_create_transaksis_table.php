@@ -19,8 +19,8 @@ return new class extends Migration
             $table->date('tgl_transaksi');
             $table->string('nama_kasir');
             $table->bigInteger('total_bayar');
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('obat_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('obat_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
             $table->foreignId('resep_id')->nullable()->constrained();
             $table->timestamps();
         });

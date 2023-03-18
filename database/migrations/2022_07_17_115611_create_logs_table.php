@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->dateTime('waktu');
             $table->string('aktifitas');
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -20,14 +20,17 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create([
             'username' => 'admin',
+            'telepon' => '08080808',
             'role' => 'admin'
         ]);
         User::factory()->create([
             'username' => 'kasir',
+            'telepon' => '08080808',
             'role' => 'kasir'
         ]);
         User::factory()->create([
             'username' => 'apoteker',
+            'telepon' => '08080808',
             'role' => 'apoteker'
         ]);
         
@@ -62,6 +65,5 @@ class DatabaseSeeder extends Seeder
         Jenis::create([
             'jenis_obat' => 'Kapsul',
         ]);
-      
     }
 }
