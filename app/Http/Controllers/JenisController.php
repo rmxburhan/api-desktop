@@ -12,4 +12,26 @@ class JenisController extends Controller
             'data' => Jenis::all(),
         ]);
     }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'jenis_obat' => 'required'
+        ]);
+
+        if(Jenis::create([
+            'jenis_obat' => $request->jenis_obat        
+        ]))
+        {
+            return response([
+                'status' => 'sucess',
+                'msg' => 'Data added',
+            ], 200);
+        }
+
+        return response([
+            'status' => 'bad',
+            'msg' => 'Data failed to save!'
+        ], 400);
+    }
 }
